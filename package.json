@@ -14,5 +14,8 @@
     "temporary": "^0.0.8",
     "ws": "^0.4.32"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "bin": {
+    "edison-cli": "./bin/edison-cli"
+  }
 }

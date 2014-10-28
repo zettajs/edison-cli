@@ -5,7 +5,7 @@ var Client = require('./lib/client');
 program
   .version('0.0.1')
   .option('-H, --host <host>', 'hostname of edison')
-  .option('-q, --quite', 'supress logging')
+  .option('-q, --quite', 'supress logging');
 
 function initClient(options, cb) {
   if (!options.parent.host) {
@@ -97,3 +97,7 @@ program
   });
 
 program.parse(process.argv);
+
+if (program.args.length === 0) {
+  return program.help();
+}
