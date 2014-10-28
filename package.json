@@ -1,0 +1,18 @@
+{
+  "name": "xdk-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam Magaluk <AdamMagaluk@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.5.0",
+    "fstream": "^1.0.2",
+    "tar": "dod38fr/node-tar#b4c1d2340139b9532d504f7b4de2f2c4f1adb7f2",
+    "temporary": "^0.0.8",
+    "ws": "^0.4.32"
+  },
+  "devDependencies": {}
+}
