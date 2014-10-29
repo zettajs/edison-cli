@@ -47,7 +47,7 @@ program
         process.exit(1);
       }
       
-      client.sendDirectory(dir, true, function(err) {
+      client.sendDirectory(dir, options.force, function(err) {
         if (err) {
           console.error(err);
           process.exit(1);
