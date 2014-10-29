@@ -100,7 +100,7 @@ program
 
 program
   .command('list [timeout]')
-  .description('find edisons on your network and list them out.')
+  .description('find edisons on your network and list them.')
   .action(function(timeout, options){
     if (!timeout) {
       timeout = 5000;
