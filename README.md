@@ -23,3 +23,19 @@
     -H, --host <host>  hostname of edison
     -q, --quite        supress logging
 ```
+
+## Search for Edisons
+
+`$ edison-cli list`
+
+## Deploy Node App
+
+`$ edison-cli -H myedison.local deploy .`
+
+## Start Application
+
+`$ edison-cli -H myedison.local start`
+
+## Stop Application
+
+`$ edison-cli -H myedison.local stop`
