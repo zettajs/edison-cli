@@ -10,6 +10,7 @@
   "dependencies": {
     "commander": "^2.5.0",
     "fstream": "^1.0.2",
+    "mdns-js": "^0.1.3",
     "tar": "git+https://github.com/dod38fr/node-tar#b4c1d2340139b9532d504f7b4de2f2c4f1adb7f2",
     "temporary": "^0.0.8",
     "ws": "^0.4.32"

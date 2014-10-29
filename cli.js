@@ -1,6 +1,7 @@
 var url = require('url');
 var program = require('commander');
 var Client = require('./lib/client');
+var find = require('./lib/find');
 
 program
   .version('0.0.1')
@@ -38,7 +39,7 @@ program
   .description('deploy node app directory to edison')
   .option("-f, --force", "force rebuild on edison")
   .action(function(dir, options){
-    dir = dir || '.';
+    dir = dir || process.cwd();
 
     initClient(options, function(err, client) {
       if (err) {
@@ -52,6 +53,7 @@ program
           process.exit(1);
         }
         client.start(function() {
+          console.log('Application restarted')
           process.exit(0);
         });
       });
@@ -95,6 +97,28 @@ program
       });
     });
   });
+
+program
+  .command('list [timeout]')
+  .description('find edisons on your network and list them out.')
+  .action(function(timeout, options){
+    if (!timeout) {
+      timeout = 5000;
+    }
+    
+    find({timeout: timeout}, function(err, devices) {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+      
+      console.log('Devices Found:', devices.length);
+      devices.forEach(function(ip, i) {
+        console.log(i+1 + ' - ' +  ip);
+      });
+    });
+  });
+
 
 program.parse(process.argv);
 
