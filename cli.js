@@ -38,6 +38,7 @@ program
   .command('deploy [dir]')
   .description('deploy node app directory to edison')
   .option("-f, --force", "force rebuild on edison")
+  .option("-o, --onlyDeploy", "do not keep process open waiting for applications output")
   .action(function(dir, options){
     dir = dir || process.cwd();
 
@@ -47,14 +48,16 @@ program
         process.exit(1);
       }
       
-      client.sendDirectory(dir, options.force, function(err) {
+      client.sendDirectory(dir, true, function(err) {
         if (err) {
           console.error(err);
           process.exit(1);
         }
         client.start(function() {
           console.log('Application restarted')
-          process.exit(0);
+          if (options.parent.quite || options.onlyDeploy) {
+            process.exit(0);
+          }
         });
       });
     });
