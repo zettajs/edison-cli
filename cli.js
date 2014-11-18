@@ -115,7 +115,7 @@ program
         process.exit(1);
       }
       
-      console.log('Devices Found:', devices.length);
+      console.log('Edison Devices Found:', devices.length);
       devices.forEach(function(ip, i) {
         console.log(i+1 + ' - ' +  ip);
       });
