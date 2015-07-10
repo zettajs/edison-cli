@@ -34,7 +34,13 @@ function initClient(options, cb) {
     }   
   });
 
+  c.on('error', function(err) {
+    console.log('error: Is there a server running on Edison?');
+    console.log(err);
+  });
+
   c.on('open', function() {
+    console.log('connection open');
     cb(null, c);
   });
 }
