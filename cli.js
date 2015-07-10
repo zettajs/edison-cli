@@ -9,6 +9,11 @@ program
   .option('-q, --quite', 'supress logging');
 
 function initClient(options, cb) {
+  if (!options.parent) {
+    console.log('no valid command!');
+    console.log('use: edison-cli <start|stop|list>');
+    process.exit(1);
+  }
   if (!options.parent.host) {
     console.log('no host')
     return cb(new Error('err'));
